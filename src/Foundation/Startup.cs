@@ -14,6 +14,7 @@ using EPiServer.Shell.Modules;
 using EPiServer.Web;
 using EPiServer.Web.Routing;
 using Foundation.Features.Checkout.Payments;
+using Foundation.Features.ProductFeed;
 using Foundation.Infrastructure;
 using Foundation.Infrastructure.Cms.Extensions;
 using Foundation.Infrastructure.Cms.ModelBinders;
@@ -27,6 +28,11 @@ using Geta.NotFoundHandler.Optimizely.Infrastructure.Initialization;
 using Geta.Optimizely.Categories.Configuration;
 using Geta.Optimizely.Categories.Find.Infrastructure.Initialization;
 using Geta.Optimizely.Categories.Infrastructure.Initialization;
+using Geta.Optimizely.ContentTypeIcons.Infrastructure.Configuration;
+using Geta.Optimizely.ContentTypeIcons.Infrastructure.Initialization;
+using Geta.Optimizely.ProductFeed;
+using Geta.Optimizely.ProductFeed.Configuration;
+using Geta.Optimizely.ProductFeed.Google;
 using Mediachase.Commerce.Anonymous;
 using Mediachase.Commerce.Orders;
 using Microsoft.AspNetCore.Builder;
@@ -179,6 +185,24 @@ namespace Foundation
                         o.AddOptimizelyCommerceProviders();
                     });
 
+            services.AddContentTypeIcons(o =>
+            {
+                o.EnableTreeIcons = true;
+            });
+
+            services
+                .AddProductFeed<MyCommerceProductRecord>(x =>
+                {
+                    x.ConnectionString = _configuration.GetConnectionString("EPiServerDB");
+                    x.SetEntityMapper<EntityMapper>();
+
+                    x.AddGoogleXmlExport(d =>
+                    {
+                        d.FileName = "/google-feed";
+                        d.SetConverter<GoogleXmlConverter>();
+                    });
+                });
+
             services.Configure<ProtectedModuleOptions>(x =>
             {
                 if (!x.Items.Any(x => x.Name.Equals("Foundation")))
@@ -243,6 +267,8 @@ namespace Foundation
             app.UseNotFoundHandler();
             app.UseOptimizelyNotFoundHandler();
 
+            app.UseContentTypeIcons();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -261,7 +287,7 @@ namespace Foundation
             {
                 endpoints.MapControllerRoute(name: "Default", pattern: "{controller}/{action}/{id?}");
                 endpoints.MapControllers();
-                endpoints.MapRazorPages();
+                endpoints.MapProductFeeds();
                 endpoints.MapContent();
             });
         }
