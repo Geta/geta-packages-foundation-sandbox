@@ -61,6 +61,9 @@ namespace Foundation.Features.StandardPage
             Order = 260)]
         public virtual string TopPaddingMode { get; set; }
 
+        [UIHint("Tags")]
+        public virtual string Tags { get; set; }
+
         public override void SetDefaultValues(ContentType contentType)
         {
             base.SetDefaultValues(contentType);

@@ -33,6 +33,8 @@ using Geta.Optimizely.ContentTypeIcons.Infrastructure.Initialization;
 using Geta.Optimizely.ProductFeed;
 using Geta.Optimizely.ProductFeed.Configuration;
 using Geta.Optimizely.ProductFeed.Google;
+using Geta.Optimizely.Tags.Infrastructure.Configuration;
+using Geta.Optimizely.Tags.Infrastructure.Initialization;
 using Mediachase.Commerce.Anonymous;
 using Mediachase.Commerce.Orders;
 using Microsoft.AspNetCore.Builder;
@@ -203,6 +205,8 @@ namespace Foundation
                     });
                 });
 
+            services.AddGetaTags();
+
             services.Configure<ProtectedModuleOptions>(x =>
             {
                 if (!x.Items.Any(x => x.Name.Equals("Foundation")))
@@ -268,6 +272,8 @@ namespace Foundation
             app.UseOptimizelyNotFoundHandler();
 
             app.UseContentTypeIcons();
+
+            app.UseGetaTags();
 
             if (env.IsDevelopment())
             {
