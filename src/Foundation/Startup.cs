@@ -21,7 +21,9 @@ using Foundation.Infrastructure.Cms.Users;
 using Foundation.Infrastructure.Display;
 using Geta.NotFoundHandler.Infrastructure.Configuration;
 using Geta.NotFoundHandler.Infrastructure.Initialization;
+using Geta.NotFoundHandler.Optimizely.Commerce.Infrastructure.Configuration;
 using Geta.NotFoundHandler.Optimizely.Infrastructure.Configuration;
+using Geta.NotFoundHandler.Optimizely.Infrastructure.Initialization;
 using Geta.Optimizely.Categories.Configuration;
 using Geta.Optimizely.Categories.Find.Infrastructure.Initialization;
 using Geta.Optimizely.Categories.Infrastructure.Initialization;
@@ -106,8 +108,8 @@ namespace Foundation
                 o.EnablePreviewFeatures = true;
                 o.IncludeEmptyContentProperties = true;
                 o.FlattenPropertyModel = false;
-                o.IncludeMasterLanguage = false; 
-                
+                o.IncludeMasterLanguage = false;
+
             });
 
             // Content Delivery API
@@ -161,13 +163,22 @@ namespace Foundation
                 options.Applications.Add(application);
                 options.AllowResourceOwnerPasswordFlow = true;
             });
-            
+
             services.AddOpenIDConnectUI();
 
             services.ConfigureContentDeliveryApiSerializer(settings => settings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore);
 
-            services.AddNotFoundHandler(o => o.UseSqlServer(_configuration.GetConnectionString("EPiServerDB")), policy => policy.RequireRole(Roles.CmsAdmins));
-            services.AddOptimizelyNotFoundHandler();
+            services
+                .AddNotFoundHandler(
+                    o => o.UseSqlServer(_configuration.GetConnectionString("EPiServerDB")),
+                    policy => policy.RequireRole(Roles.CmsAdmins))
+                .AddOptimizelyNotFoundHandler(
+                    o =>
+                    {
+                        o.AutomaticRedirectsEnabled = true;
+                        o.AddOptimizelyCommerceProviders();
+                    });
+
             services.Configure<ProtectedModuleOptions>(x =>
             {
                 if (!x.Items.Any(x => x.Name.Equals("Foundation")))
@@ -230,6 +241,8 @@ namespace Foundation
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseNotFoundHandler();
+            app.UseOptimizelyNotFoundHandler();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
