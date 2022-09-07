@@ -30,6 +30,7 @@ using Geta.Optimizely.Categories.Find.Infrastructure.Initialization;
 using Geta.Optimizely.Categories.Infrastructure.Initialization;
 using Geta.Optimizely.ContentTypeIcons.Infrastructure.Configuration;
 using Geta.Optimizely.ContentTypeIcons.Infrastructure.Initialization;
+using Geta.Optimizely.GeolocationTools;
 using Geta.Optimizely.ProductFeed;
 using Geta.Optimizely.ProductFeed.Configuration;
 using Geta.Optimizely.ProductFeed.Google;
@@ -218,6 +219,8 @@ namespace Foundation
                 }, p => p.RequireRole(Roles.CmsAdmins))
                 .AddSitemapsCommerce();
 
+            services.AddGeolocationTools();
+
             services.Configure<ProtectedModuleOptions>(x =>
             {
                 if (!x.Items.Any(x => x.Name.Equals("Foundation")))
@@ -281,10 +284,9 @@ namespace Foundation
         {
             app.UseNotFoundHandler();
             app.UseOptimizelyNotFoundHandler();
-
             app.UseContentTypeIcons();
-
             app.UseGetaTags();
+            app.UseGeolocationTools();
 
             if (env.IsDevelopment())
             {

@@ -45,6 +45,8 @@
 		<PackageReference Include="Geta.Optimizely.Categories.Find" Version="1.0.0" />
 		<PackageReference Include="Geta.Optimizely.ContentTypeIcons" Version="2.0.2" />
 		<PackageReference Include="Geta.Optimizely.GenericLinks.ContentDeliveryApi" Version="1.4.0" />
+		<PackageReference Include="Geta.Optimizely.GeolocationTools" Version="2.0.0" />
+		<PackageReference Include="Geta.Optimizely.GeolocationTools.Commerce" Version="2.0.0" />
 		<PackageReference Include="Geta.Optimizely.ProductFeed.Google" Version="2.3.0" />
 		<PackageReference Include="Geta.Optimizely.Sitemaps" Version="2.0.0" />
 		<PackageReference Include="Geta.Optimizely.Sitemaps.Commerce" Version="2.0.0" />
