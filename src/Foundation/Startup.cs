@@ -33,6 +33,8 @@ using Geta.Optimizely.ContentTypeIcons.Infrastructure.Initialization;
 using Geta.Optimizely.ProductFeed;
 using Geta.Optimizely.ProductFeed.Configuration;
 using Geta.Optimizely.ProductFeed.Google;
+using Geta.Optimizely.Sitemaps;
+using Geta.Optimizely.Sitemaps.Commerce;
 using Geta.Optimizely.Tags.Infrastructure.Configuration;
 using Geta.Optimizely.Tags.Infrastructure.Initialization;
 using Mediachase.Commerce.Anonymous;
@@ -207,6 +209,15 @@ namespace Foundation
 
             services.AddGetaTags();
 
+            services
+                .AddSitemaps(x =>
+                {
+                    x.EnableLanguageDropDownInAdmin = false;
+                    x.EnableRealtimeCaching = true;
+                    x.EnableRealtimeSitemap = false;
+                }, p => p.RequireRole(Roles.CmsAdmins))
+                .AddSitemapsCommerce();
+
             services.Configure<ProtectedModuleOptions>(x =>
             {
                 if (!x.Items.Any(x => x.Name.Equals("Foundation")))
@@ -291,9 +302,10 @@ namespace Foundation
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapProductFeeds();
                 endpoints.MapControllerRoute(name: "Default", pattern: "{controller}/{action}/{id?}");
                 endpoints.MapControllers();
-                endpoints.MapProductFeeds();
+                endpoints.MapRazorPages();
                 endpoints.MapContent();
             });
         }

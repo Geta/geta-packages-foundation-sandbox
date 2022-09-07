@@ -46,6 +46,8 @@
 		<PackageReference Include="Geta.Optimizely.ContentTypeIcons" Version="2.0.2" />
 		<PackageReference Include="Geta.Optimizely.GenericLinks.ContentDeliveryApi" Version="1.4.0" />
 		<PackageReference Include="Geta.Optimizely.ProductFeed.Google" Version="2.3.0" />
+		<PackageReference Include="Geta.Optimizely.Sitemaps" Version="2.0.0" />
+		<PackageReference Include="Geta.Optimizely.Sitemaps.Commerce" Version="2.0.0" />
 		<PackageReference Include="Geta.Optimizely.Tags" Version="1.0.0" />
 		<PackageReference Include="NonFactors.Grid.Core.Mvc6" Version="7.0.1" />
 		<PackageReference Include="Optimizely.Labs.MarketingAutomationIntegration.ODP" Version="1.0.2" />
