@@ -75,6 +75,9 @@ UpgradeLog*.htm
 .vs
 Setup*.log
 
+# Rider
+.idea
+
 # Foundation
 Build/Logs/*.log
 src/appdata/*
