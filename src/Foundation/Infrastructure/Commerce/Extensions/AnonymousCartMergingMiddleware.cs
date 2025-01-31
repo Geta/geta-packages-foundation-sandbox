@@ -18,7 +18,7 @@ namespace Infrastructure.Commerce.Extensions
         {
             if (context.User.Identity != null && context.User.Identity.IsAuthenticated)
             {
-                var anonymousId = context.Features.Get<IAnonymousIdFeature>().AnonymousId;
+                var anonymousId = context.Features.Get<IAnonymousIdFeature>()?.AnonymousId;
 
                 if (!string.IsNullOrWhiteSpace(anonymousId))
                 {
