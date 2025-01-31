@@ -1,7 +1,6 @@
 ﻿using Advanced.CMS.AdvancedReviews;
 using Advanced.CMS.BulkEdit;
 using Advanced.CMS.GroupingHeader;
-using EPiServer.Authorization;
 using EPiServer.Cms.TinyMce.SpellChecker;
 using EPiServer.ContentApi.Cms;
 using EPiServer.ContentApi.Cms.Internal;
@@ -20,9 +19,6 @@ using Foundation.Features.Checkout.Payments;
 using Foundation.Infrastructure.Cms.ModelBinders;
 using Foundation.Infrastructure.Cms.Users;
 using Foundation.Infrastructure.Display;
-using Geta.NotFoundHandler.Infrastructure.Configuration;
-using Geta.NotFoundHandler.Infrastructure.Initialization;
-using Geta.NotFoundHandler.Optimizely.Infrastructure.Configuration;
 using Geta.Optimizely.Categories.Configuration;
 using Geta.Optimizely.Categories.Find.Infrastructure.Initialization;
 using Geta.Optimizely.Categories.Infrastructure.Initialization;
@@ -196,8 +192,6 @@ namespace Foundation
 
             services.ConfigureContentDeliveryApiSerializer(settings => settings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore);
 
-            services.AddNotFoundHandler(o => o.UseSqlServer(_configuration.GetConnectionString("EPiServerDB")), policy => policy.RequireRole(Roles.CmsAdmins));
-            services.AddOptimizelyNotFoundHandler();
             services.Configure<ProtectedModuleOptions>(x =>
             {
                 if (!x.Items.Any(x => x.Name.Equals("Foundation")))
@@ -263,7 +257,6 @@ namespace Foundation
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseNotFoundHandler();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

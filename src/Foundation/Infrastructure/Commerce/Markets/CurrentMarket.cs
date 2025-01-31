@@ -8,7 +8,7 @@ namespace Foundation.Infrastructure.Commerce.Markets
     public class CurrentMarket : ICurrentMarket
     {
         private const string MarketCookie = "MarketId";
-        private static readonly MarketId DefaultMarketId = new MarketId("US");
+        private static readonly MarketId DefaultMarketId = new MarketId("DEFAULT");
         private readonly ICookieService _cookieService;
         private readonly IMarketService _marketService;
         private readonly ICustomerService _customerService;

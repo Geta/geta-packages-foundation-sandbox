@@ -29,6 +29,7 @@ namespace Foundation.Infrastructure.Commerce
             _services.AddSingleton<ICouponFilter, FoundationCouponFilter>();
             _services.AddSingleton<ICouponUsage, FoundationCouponUsage>();
             _services.AddSingleton<IInstallService, InstallService>();
+            _services.AddSingleton<IInstallStep, AddAdmin>();
             _services.AddSingleton<IInstallStep, AddCurrencies>();
             _services.AddSingleton<IInstallStep, AddCustomers>();
             _services.AddSingleton<IInstallStep, AddMarkets>();
