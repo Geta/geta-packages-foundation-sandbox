@@ -25,6 +25,12 @@ Windows
 
 [Sql Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
 
+Aspire
+[Docker mac](https://docs.docker.com/desktop/mac/install/)
+[Docker windows](https://docs.docker.com/desktop/setup/install/windows-install/)
+[Docker linux](https://docs.docker.com/desktop/setup/install/linux/)
+[Net 8] (https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
+
 ---
 
 ## The Solution
@@ -65,6 +71,13 @@ cd Foundation
 chmod u+x setup.sh
 ./setup.sh
 dotnet run --project ./src/Foundation/Foundation.csproj
+```
+
+### Aspire
+
+```
+Run Foundation.AppHost project 
+Access the site from the aspire dashboard
 ```
 
 ### View the site
