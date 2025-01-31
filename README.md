@@ -26,10 +26,14 @@ Windows
 [Sql Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
 
 Aspire
+
 [Docker mac](https://docs.docker.com/desktop/mac/install/)
+
 [Docker windows](https://docs.docker.com/desktop/setup/install/windows-install/)
+
 [Docker linux](https://docs.docker.com/desktop/setup/install/linux/)
-[Net 8] (https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
+
+[Net 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
 
 ---
 
