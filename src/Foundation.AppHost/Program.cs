@@ -53,8 +53,6 @@ var sqlserver = builder.AddSqlServer(config.SqlServerName, port: config.SqlServe
 var cmsDatabase = sqlserver.AddDatabase(config.CmsDatabaseName);
 var commerceDatabase = sqlserver.AddDatabase(config.CommerceDatabaseName);
 
-
-
 var csprojPath = Directory.GetFiles(projectDirectoryPath, "*.csproj", SearchOption.TopDirectoryOnly).FirstOrDefault();
 
 if (string.IsNullOrEmpty(csprojPath))
