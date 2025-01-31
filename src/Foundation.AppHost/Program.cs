@@ -35,16 +35,6 @@ if (string.IsNullOrEmpty(config.CommerceDatabaseName))
     throw new NullReferenceException("CommerceDatabaseName cannot be null or empty");
 }
 
-if (string.IsNullOrEmpty(config.User))
-{
-    throw new NullReferenceException("User cannot be null or empty");
-}
-
-if (string.IsNullOrEmpty(config.Password))
-{
-    throw new NullReferenceException("Password cannot be null or empty");
-}
-
 var sqlserver = builder.AddSqlServer(config.SqlServerName, port: config.SqlServerPort)
     // Mount the init scripts directory into the container.
     .WithBindMount("../Foundation/docker/build-script", "/usr/config")

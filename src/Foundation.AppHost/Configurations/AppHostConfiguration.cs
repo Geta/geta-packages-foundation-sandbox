@@ -6,8 +6,6 @@ public class AppHostConfiguration
     public int SqlServerPort { get; set; }
     public string CmsDatabaseName { get; set; } = null!;
     public string CommerceDatabaseName { get; set; } = null!;
-    public string User { get; set; } = null!;
-    public string Password { get; set; } = null!;
     public string WebName { get; set; } = null!;
     public int WebPort { get; set; }
     public string? WebScheme { get; set; }
