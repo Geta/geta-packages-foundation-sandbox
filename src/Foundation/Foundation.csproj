@@ -88,6 +88,7 @@
         <PackageReference Include="Serilog.Sinks.File" Version="5.0.0"/>
     </ItemGroup>
     <ItemGroup>
+        <Content Include="modules\ModulesInclude.proj" />
         <EmbeddedResource Include="lang\**\*"/>
         <None Update="App_Data\**" CopyToOutputDirectory="PreserveNewest"/>
         <None Update="modules\_protected\Foundation\**" CopyToOutputDirectory="PreserveNewest"/>
