@@ -7,6 +7,16 @@
 
 Foundation offers a starting point that is intuitive, well-structured and modular allowing developers to explore CMS, Commerce, Personalization, Search amd Navigaion, Data Platform and Experimentation.
 
+
+## How to run locally
+1) Using Aspire project
+    - [Install Aspire dependencies](https://github.com/Geta/geta-packages-foundation-sandbox?tab=readme-ov-file#1-for-aspire-run)
+    - Run Sandbox/Foundation.AppHost project
+
+2) Using regular project run
+    - [Install dependencies depending on your OS](https://github.com/Geta/geta-packages-foundation-sandbox?tab=readme-ov-file#2-for-regular-project-run)
+    - [Follow the installation guide](https://github.com/Geta/geta-packages-foundation-sandbox?tab=readme-ov-file#regular)
+
 ---
 
 ## Prerequisites
@@ -42,13 +52,6 @@ Ensure the following dependencies are installed:
 `Foundation has a default username and password of admin@example.com / Episerver123!`
 
 ---
-
-## Installation
-### Aspire
-```
-git clone https://github.com/Geta/geta-packages-foundation-sandbox.git
-dotnet run --project .\src\Foundation.AppHost\Foundation.AppHost.csproj
-```
 
 ### Regular 
 #### Windows
