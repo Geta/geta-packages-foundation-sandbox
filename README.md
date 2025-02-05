@@ -11,29 +11,29 @@ Foundation offers a starting point that is intuitive, well-structured and modula
 
 ## Prerequisites
 
-You will need these to run locally on your machine.
+To run this project locally on your machine, you have to install dependencies:
+
+### 1. For Aspire run
+Ensure the following dependencies are installed:
+- [Net 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) to run the foundation project
+- [Net 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) to run aspire project
+- [Docker](https://www.docker.com/)
+
+
+### 2. For regular project run
 
 [Net 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) sdk is required to use with visual studio.  Runtime maybe sufficent to just run the application.
 
 [Node JS](https://nodejs.org/en/download/)
 
-Mac/Linux
+#### Mac/Linux
 
 [Docker](https://docs.docker.com/desktop/mac/install/)
 
-Windows
+#### Windows
 
 [Sql Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
 
-Aspire
-
-[Docker mac](https://docs.docker.com/desktop/mac/install/)
-
-[Docker windows](https://docs.docker.com/desktop/setup/install/windows-install/)
-
-[Docker linux](https://docs.docker.com/desktop/setup/install/linux/)
-
-[Net 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
 
 ---
 
@@ -44,44 +44,40 @@ Aspire
 ---
 
 ## Installation
+### Aspire
+```
+git clone https://github.com/Geta/geta-packages-foundation-sandbox.git
+dotnet run --project .\src\Foundation.AppHost\Foundation.AppHost.csproj
+```
 
-### Windows
+### Regular 
+#### Windows
 
 ```
-open command prompt as administrator
-git clone https://github.com/episerver/Foundation.git
+git clone https://github.com/Geta/geta-packages-foundation-sandbox.git
 cd foundation
 setup.cmd 
 dotnet run --project .\src\Foundation\Foundation.csproj
 ```
 
-### Mac
+#### Mac
 
 ```
-Open a Terminal window
-git clone https://github.com/episerver/Foundation.git
+git clone https://github.com/Geta/geta-packages-foundation-sandbox.git
 cd Foundation
 chmod u+x setup.sh
 ./setup.sh
 dotnet run --project ./src/Foundation/Foundation.csproj
 ```
 
-### Linux
+#### Linux
 
 ```
-Open a bash terminal window
-git clone https://github.com/episerver/Foundation.git
+git clone https://github.com/Geta/geta-packages-foundation-sandbox.git
 cd Foundation
 chmod u+x setup.sh
 ./setup.sh
 dotnet run --project ./src/Foundation/Foundation.csproj
-```
-
-### Aspire
-
-```
-Run Foundation.AppHost project 
-Access the site from the aspire dashboard
 ```
 
 ### View the site
