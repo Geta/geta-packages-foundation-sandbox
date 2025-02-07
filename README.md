@@ -7,86 +7,47 @@
 
 Foundation offers a starting point that is intuitive, well-structured and modular allowing developers to explore CMS, Commerce, Personalization, Search amd Navigaion, Data Platform and Experimentation.
 
-
-## How to run locally
-1) Using Aspire project
-    - [Install Aspire dependencies](https://github.com/Geta/geta-packages-foundation-sandbox?tab=readme-ov-file#1-for-aspire-run)
-    - Run Sandbox/Foundation.AppHost project
-
-2) Using regular project run
-    - [Install dependencies depending on your OS](https://github.com/Geta/geta-packages-foundation-sandbox?tab=readme-ov-file#2-for-regular-project-run)
-    - [Follow the installation guide](https://github.com/Geta/geta-packages-foundation-sandbox?tab=readme-ov-file#regular)
-
----
-
 ## Prerequisites
+| (Aspire project)                                                       | .Net project (Windows)                                                        | .Net project (Linux)                                                    | .Net project (MacOs) |
+|------------------------------------------------------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------|----------------------|
+| [.NET 8.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) | [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) | [Docker Desktop](https://docs.docker.com/desktop/setup/install/linux/)  | [Docker Desktop](https://docs.docker.com/desktop/setup/install/linux/)                     |
+| [Docker Desktop](https://www.docker.com/products/docker-desktop)       | [Docker Desktop](https://www.docker.com/products/docker-desktop)              | [.NET 6.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)  | [.NET 6.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)                      |
+| [.NET 6.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) | [.NET 6.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)        | [Node.js](https://nodejs.org/en/download/)                              | [Node.js](https://nodejs.org/en/download/)                     |
+|                                                                        | [Node.js](https://nodejs.org/en/download/)                                    |                                                                         |                      |
 
-To run this project locally on your machine, you have to install dependencies:
+## Local Development
+### Option 1: Aspire Project (Recommended)
+1. **Clone Repository**
+   ```bash
+   git clone https://github.com/Geta/geta-packages-foundation-sandbox.git
+   cd geta-packages-foundation-sandbox/src/Foundation.AppHost
+2. **Run application**
+   ```bash
+   dotnet run --project Foundation.AppHost
+3. **Access Dashboard**
+   ```
+   Open the Aspire dashboard and navigate from the dashboard to https://localhost:5001/
 
-### 1. For Aspire run
-Ensure the following dependencies are installed:
-- [Net 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) to run the foundation project
-- [Net 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) to run aspire project
-- [Docker](https://www.docker.com/)
-
-
-### 2. For regular project run
-
-[Net 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) sdk is required to use with visual studio.  Runtime maybe sufficent to just run the application.
-
-[Node JS](https://nodejs.org/en/download/)
-
-#### Mac/Linux
-
-[Docker](https://docs.docker.com/desktop/mac/install/)
-
-#### Windows
-
-[Sql Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
-
-
+### Option 2: Regular project
+1. **Clone Repository**
+   ```bash
+   git clone https://github.com/Geta/geta-packages-foundation-sandbox.git
+   cd geta-packages-foundation-sandbox/src/Foundation
+2. **Setup Environment**
+   ```bash
+    # Windows
+    setup.cmd
+    
+    # macOS/Linux
+    chmod +x setup.sh
+    ./setup.sh
+3. **Run application**
+   ```bash
+   dotnet run --project ./src/Foundation/Foundation.csproj
 ---
 
-## The Solution
+## Access Credentials
+### Default Admin Account
+🔑 <code>admin@example.com</code> / <code>Episerver123!</code>
 
-`Foundation has a default username and password of admin@example.com / Episerver123!`
 
----
-
-### Regular 
-#### Windows
-
-```
-git clone https://github.com/Geta/geta-packages-foundation-sandbox.git
-cd foundation
-setup.cmd 
-dotnet run --project .\src\Foundation\Foundation.csproj
-```
-
-#### Mac
-
-```
-git clone https://github.com/Geta/geta-packages-foundation-sandbox.git
-cd Foundation
-chmod u+x setup.sh
-./setup.sh
-dotnet run --project ./src/Foundation/Foundation.csproj
-```
-
-#### Linux
-
-```
-git clone https://github.com/Geta/geta-packages-foundation-sandbox.git
-cd Foundation
-chmod u+x setup.sh
-./setup.sh
-dotnet run --project ./src/Foundation/Foundation.csproj
-```
-
-### View the site
-
-After completing the setup steps and running the solution, access the site at <a href="http://localhost:5000">http://localhost:5000</a>.
-
-To change the default port, modify the file <a href="https://github.com/episerver/Foundation/blob/main/src/Foundation/Properties/launchSettings.json">/src/Foundation/Properties/launchSettings.json</a>.
-
----
