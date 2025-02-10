@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <VersionPrefix>2021.04.1.0</VersionPrefix>
         <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
         <VersionSuffix></VersionSuffix>
@@ -81,7 +81,7 @@
         <PackageReference Include="NonFactors.Grid.Core.Mvc6" Version="7.1.0"/>
         <PackageReference Include="Powell.CouponCode" Version="1.0.3"/>
         <PackageReference Include="Schema.NET" Version="11.0.1"/>
-        <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.1"/>
+        <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.1"/>
         <PackageReference Include="System.Linq.Async" Version="6.0.1"/>
         <PackageReference Include="Wangkanai.Detection" Version="6.11.3"/>
         <PackageReference Include="Serilog" Version="2.12.0"/>
