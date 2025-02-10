@@ -22,10 +22,12 @@ using Foundation.Infrastructure.Display;
 using Geta.Optimizely.Categories.Configuration;
 using Geta.Optimizely.Categories.Find.Infrastructure.Initialization;
 using Geta.Optimizely.Categories.Infrastructure.Initialization;
+
 using Mediachase.Commerce.Anonymous;
 using Mediachase.Commerce.Orders;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -255,7 +257,7 @@ namespace Foundation
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, Action<IEndpointRouteBuilder> endpoints = null)
         {
             if (env.IsDevelopment())
             {
@@ -272,13 +274,21 @@ namespace Foundation
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseAnonymousCartMerging();
-            app.UseEndpoints(endpoints =>
+
+            if (endpoints != null)
             {
-                endpoints.MapControllerRoute(name: "Default", pattern: "{controller}/{action}/{id?}");
-                endpoints.MapControllers();
-                endpoints.MapRazorPages();
-                endpoints.MapContent();
-            });
+                app.UseEndpoints(endpoints);
+            }
+            else
+            {
+                app.UseEndpoints(x =>
+                {
+                    x.MapControllerRoute(name: "Default", pattern: "{controller}/{action}/{id?}");
+                    x.MapControllers();
+                    x.MapRazorPages();
+                    x.MapContent();
+                });
+            }
         }
     }
 }
