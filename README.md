@@ -1,9 +1,7 @@
 <div align="center">
-  <a href="https://github.com/episerver/Foundation">
-    <img src="https://www.optimizely.com/globalassets/02.-global-images/navigation/optimizely_logo_navigation.svg" alt="Optimizely Foundation" width="400">
-  </a>
+  <img src="https://www.getadigital.com/EPiServer/CMS/Content/globalassets/images/geta-logo.png,,2648_4790?epieditmode=true" alt="Geta" width="400"/>
   <h1>Geta Packages Foundation Sandbox</h1>
-  <p>A modular development environment for Optimizely CMS projects</p>
+  <p>Made specially to use for open source packages</p>
 
 [![.NET 8.0](https://img.shields.io/badge/.NET-8.0-512BD4)](https://dotnet.microsoft.com/download/dotnet/8.0)
 [![Docker](https://img.shields.io/badge/Docker-✓-2496ED)](https://www.docker.com)
@@ -30,14 +28,13 @@ Featuring integrated [.NET Aspire](https://learn.microsoft.com/en-us/dotnet/aspi
     - 🖥️ Standalone project
 - **Foundation Project**
     - 📦 Modular architecture covering CMS, Commerce, Personalization, Search, and more
-- **Aspire AppHost**
+- **Aspire Foundation.AppHost**
     - 🐳 Docker-based environment
     - 📊 Centralized dashboard monitoring
 
 ### Concept
 
-
-Instead of merging all existing open-source packages into the Optimizely Foundation project, 
+Instead of referencing all existing open-source packages into the Optimizely Foundation project, 
 it is possible to use this project’s codebase as a submodule for an open-source package and run a web project with a specific configuration.
 
 This approach allows us to:
@@ -156,3 +153,4 @@ This approach allows us to:
 
     ```
 7. **Run Foundation.AppHost**   
+
