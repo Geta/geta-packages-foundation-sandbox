@@ -1,5 +1,7 @@
 <div align="center">
-  <img src="https://www.getadigital.com/EPiServer/CMS/Content/globalassets/images/geta-logo.png,,2648_4790?epieditmode=true" alt="Geta" width="400"/>
+  <a href="https://github.com/episerver/Foundation">
+    <img src="https://www.optimizely.com/globalassets/02.-global-images/navigation/optimizely_logo_navigation.svg" alt="Optimizely Foundation" width="400">
+  </a>
   <h1>Geta Packages Foundation Sandbox</h1>
   <p>Made specially to use for open source packages</p>
 
