@@ -5,7 +5,7 @@
   <h1>Geta Packages Foundation Sandbox</h1>
   <p>A modular development environment for Optimizely CMS projects</p>
 
-[![.NET 8.0](https://img.shields.io/badge/.NET-8.0-512BD4)](https://dotnet.microsoft.com/download/dotnet/8.0)
+[![.NET 9.0](https://img.shields.io/badge/.NET-9.0-512BD4)](https://dotnet.microsoft.com/download/dotnet/9.0)
 [![Docker](https://img.shields.io/badge/Docker-✓-2496ED)](https://www.docker.com)
 [![Aspire Supported](https://img.shields.io/badge/.NET_Aspire-✓-512BD4)](https://learn.microsoft.com/en-us/dotnet/aspire/)
 
@@ -42,12 +42,12 @@ This approach allows us to:
 ---
 
 ## 🛠️ Prerequisites
-| Aspire project                                                         | .Net project (Windows)                                                              | .Net project (Linux)                                                    | .Net project (MacOs) |
-|------------------------------------------------------------------------|-------------------------------------------------------------------------------------|-------------------------------------------------------------------------|----------------------|
-| [.NET 8.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) | [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)       | [Docker Desktop](https://docs.docker.com/desktop/setup/install/linux/)  | [Docker Desktop](https://docs.docker.com/desktop/setup/install/linux/)                     |
-| [Docker Desktop](https://www.docker.com/products/docker-desktop)       | [Docker Desktop](https://www.docker.com/products/docker-desktop)                    | [.NET 8.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)  | [.NET 8.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)                      |
-| [Node.js](https://nodejs.org/en/download/)                             | [.NET 8.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)              | [Node.js](https://nodejs.org/en/download/)                              | [Node.js](https://nodejs.org/en/download/)                     |
-|                                                                        | [Node.js](https://nodejs.org/en/download/)                                          |                                                                         |                      |
+| Aspire project                                                         | .Net project (Windows)                                                        | .Net project (Linux)                                                   | .Net project (MacOs)                                                   |
+|------------------------------------------------------------------------|-------------------------------------------------------------------------------|------------------------------------------------------------------------|------------------------------------------------------------------------|
+| [.NET 9.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0) | [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) | [Docker Desktop](https://docs.docker.com/desktop/setup/install/linux/) | [Docker Desktop](https://docs.docker.com/desktop/setup/install/linux/) |
+| [Docker Desktop](https://www.docker.com/products/docker-desktop)       | [Docker Desktop](https://www.docker.com/products/docker-desktop)              | [.NET 9.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0) | [.NET 9.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0) |
+| [Node.js](https://nodejs.org/en/download/)                             | [.NET 9.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)        | [Node.js](https://nodejs.org/en/download/)                             | [Node.js](https://nodejs.org/en/download/)                             |
+|                                                                        | [Node.js](https://nodejs.org/en/download/)                                    |                                                                        |                                                                        |
 
 ---
 
