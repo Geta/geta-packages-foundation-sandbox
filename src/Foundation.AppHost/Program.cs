@@ -69,11 +69,15 @@ var buildConfiguration =
 
 RunProcess("dotnet", $"build -c {buildConfiguration}", projectDirectoryPath);
 
-builder.AddProject(config.WebName, csprojPath)
-    .WithEndpoint(port: config.WebPort, scheme: config.WebScheme ?? "https")
+var project = builder.AddProject(config.WebName, csprojPath)
     .WithEnvironment("ConnectionStrings__EPiServerDB", cmsDatabase.Resource.ConnectionStringExpression)
     .WithEnvironment("ConnectionStrings__EcfSqlConnection", commerceDatabase.Resource.ConnectionStringExpression)
     .WaitFor(sqlserver);
+
+if (config.WebPort != null)
+{
+    project.WithEndpoint(port: config.WebPort);
+}
 
 builder.Build().Run();
 return;
