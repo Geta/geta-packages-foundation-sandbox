@@ -15,9 +15,7 @@
 
 ## 🚀 Overview
 
-This sandbox is a fork of [Optimizely Foundation](https://github.com/episerver/Foundation) designed to serve as either:
-- A standalone development environment
-- A submodule for Geta's open-source packages
+This sandbox is a fork of [Optimizely Foundation](https://github.com/episerver/Foundation) designed to serve as a submodule for Geta's open-source packages.
 
 Featuring integrated [.NET Aspire](https://learn.microsoft.com/en-us/dotnet/aspire/) support for streamlined orchestration and enhanced developer productivity.
 
@@ -25,9 +23,6 @@ Featuring integrated [.NET Aspire](https://learn.microsoft.com/en-us/dotnet/aspi
 
 ## 🌟 Key Features/Concept
 
-- **Dual Operation Modes**
-    - 🧩 Submodule integration
-    - 🖥️ Standalone project
 - **Foundation Project**
     - 📦 Modular architecture covering CMS, Commerce, Personalization, Search, and more
 - **Aspire AppHost**
@@ -35,7 +30,6 @@ Featuring integrated [.NET Aspire](https://learn.microsoft.com/en-us/dotnet/aspi
     - 📊 Centralized dashboard monitoring
 
 ### Concept
-
 
 Instead of merging all existing open-source packages into the Optimizely Foundation project, 
 it is possible to use this project’s codebase as a submodule for an open-source package and run a web project with a specific configuration.
@@ -57,102 +51,10 @@ This approach allows us to:
 
 ---
 
-## 🏁 Getting Started
-### 🧪 Quick Start with Aspire (Recommended)
-```bash
-    git clone https://github.com/Geta/geta-packages-foundation-sandbox.git
-    cd geta-packages-foundation-sandbox/src/Foundation.AppHost
-    dotnet run 
-```
-### 🖥️ Standalone Setup
-```bash
-   git clone https://github.com/Geta/geta-packages-foundation-sandbox.git
-   cd geta-packages-foundation-sandbox/src/Foundation
-   
-   # Windows
-   ./setup.cmd
-
-   # Linux/macOS
-   chmod +x setup.sh
-   ./setup.sh
-   
-   dotnet run
-```
-
 ## 🔑 Default Credentials
 ### Admin Access
 <code>admin@example.com</code> / <code>Episerver123!</code>
 
-
 ## ❓ FAQ
-### How to Use as a Submodule
-1. **Add submodule to your project:**
-   ```bash
-   cd yourProjectDirectory
-   mkdir sandbox
-   cd sandbox
-   git submodule add https://github.com/Geta/geta-packages-foundation-sandbox.git
-   ```
-2. **Create web project (.net >= 8):**
-   ```bash
-   cd yourProjectDirectory
-   mkdir src
-   dotnet new web --name yourProjectName.Web --output src/yourProjectName.Web
-   ```
-3. **Add Foundation reference and modules importer**
-   ```xml
-    <!-- yourProjectName.Web.csproj -->
-    <ItemGroup>
-      <ProjectReference Include="..\..\sandbox\src\Foundation\Foundation.csproj" />
-    </ItemGroup>
-   
-    <Import Project="..\..\sandbox\geta-packages-foundation-sandbox\src\Foundation\modules\ModulesInclude.proj"/>
-   ```
-4. **Create startup.cs file**
-    ```cs
-    public class Startup : Foundation.Startup
-    {
-        public Startup(IWebHostEnvironment env, IConfiguration config): base(env, config) { }
-    
-        public override void ConfigureServices(IServiceCollection services)
-        {
-            base.ConfigureServices(services);
-            // Custom services here
-        }
-        
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
-            base.Configure(app, env);
-            ... // Custom services here
-        }
-    }
-    ```
-5. **Adjust program.cs file**
-    ```cs
-    using yourProjectNameWebNamespace;
-    
-    Host.CreateDefaultBuilder(args)
-    .ConfigureCmsDefaults()
-    .ConfigureWebHostDefaults(webBuilder =>
-    {
-        webBuilder.UseStartup<Startup>();
-        webBuilder.UseContentRoot(Path.GetFullPath("../../sandbox/geta-packages-foundation-sandbox/src/Foundation"));
-    })
-    .Build()
-    .Run();
 
-    ```
-   
-6. **Add AppHostConfiguration to appsettings.json**
-    ```json
-    "AppHost": {
-      "SqlServerName": "yourSqlServerName",
-      "SqlServerPort": 1433,
-      "CmsDatabaseName": "yourProjectName-cms",
-      "CommerceDatabaseName": "yourProjectName-commerce",
-      "WebName": "yourProjectName",
-      "WebPort": 5001
-    }
-
-    ```
-7. **Run Foundation.AppHost**   
+- [How to Use as a submodule?](https://github.com/Geta/geta-packages-foundation-sample#-how-to-use-as-a-submodule)
