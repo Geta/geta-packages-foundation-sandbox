@@ -2,7 +2,7 @@
   <a href="https://github.com/episerver/Foundation">
     <img src="https://www.optimizely.com/globalassets/02.-global-images/navigation/optimizely_logo_navigation.svg" alt="Optimizely Foundation" width="400">
   </a>
-  <h1>Geta Packages Foundation Sandbox</h1>
+  <h1>Geta Foundation Core</h1>
   <p>A modular development environment for Optimizely CMS projects</p>
 
 [![.NET 9.0](https://img.shields.io/badge/.NET-9.0-512BD4)](https://dotnet.microsoft.com/download/dotnet/9.0)
