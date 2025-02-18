@@ -15,6 +15,7 @@ using EPiServer.OpenIDConnect;
 using EPiServer.ServiceApi;
 using EPiServer.Shell.Modules;
 using EPiServer.Social.Framework;
+using Foundation.AppHost.ServiceDefaults;
 using Foundation.Features.Checkout.Payments;
 using Foundation.Infrastructure.Cms.ModelBinders;
 using Foundation.Infrastructure.Cms.Users;
@@ -254,6 +255,8 @@ namespace Foundation
 
             // Adds the DAM selector button
             services.AddDamSelectButton();
+
+            services.AddServiceDefaults(_configuration, _webHostingEnvironment.ApplicationName);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

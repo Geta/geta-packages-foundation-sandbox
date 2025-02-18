@@ -106,4 +106,7 @@
         <Folder Include="Infrastructure\Kpi\"/>
         <Folder Include="wwwroot\"/>
     </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\Foundation.AppHost.ServiceDefaults\Foundation.AppHost.ServiceDefaults.csproj" />
+    </ItemGroup>
 </Project>

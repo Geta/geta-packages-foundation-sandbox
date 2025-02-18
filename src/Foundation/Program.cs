@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
-using Serilog;
+using Microsoft.Extensions.Logging;
 
 namespace Foundation
 {
@@ -10,46 +10,29 @@ namespace Foundation
         {
             Main<Startup>(args);
         }
-        
-        
+
         public static void Main<TStartup>(string[] args) where TStartup: class
         {
-            var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-            var isDevelopment = environment == Environments.Development;
-
-            if (isDevelopment)
-            {
-                Log.Logger = new LoggerConfiguration()
-                    .MinimumLevel.Warning()
-                    .WriteTo.File("App_Data/log.txt", rollingInterval: RollingInterval.Day)
-                    .CreateLogger();
-            }
-
-
-            CreateHostBuilder<TStartup>(args, isDevelopment).Build().Run();
+            CreateHostBuilder<TStartup>(args).Build().Run();
         }
 
-        public static IHostBuilder CreateHostBuilder<TStartup>(string[] args, bool isDevelopment) where TStartup: class
+        public static IHostBuilder CreateHostBuilder<TStartup>(string[] args, Action<IWebHostBuilder> webHostBuilderConfigure = null) where TStartup: class
         {
-            if (isDevelopment)
-            {
-                return Host.CreateDefaultBuilder(args)
-                    .ConfigureCmsDefaults()
-                    .UseSerilog()
-                    .ConfigureWebHostDefaults(webBuilder =>
+            return Host.CreateDefaultBuilder(args)
+                .ConfigureCmsDefaults()
+                .ConfigureLogging(builder =>
+                {
+                    builder.AddOpenTelemetry(logging =>
                     {
-                        webBuilder.UseStartup<TStartup>();
+                        logging.IncludeFormattedMessage = true;
+                        logging.IncludeScopes = true;
                     });
-            }
-            else
-            {
-                return Host.CreateDefaultBuilder(args)
-                    .ConfigureCmsDefaults()
-                    .ConfigureWebHostDefaults(webBuilder =>
-                    {
-                        webBuilder.UseStartup<TStartup>();
-                    });
-            }
+                })
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<TStartup>();
+                    webHostBuilderConfigure?.Invoke(webBuilder);
+                });
         }
     }
 }
