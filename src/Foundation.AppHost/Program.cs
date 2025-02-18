@@ -5,13 +5,16 @@ using System.Diagnostics;
 var builder = DistributedApplication.CreateBuilder(args);
 
 const string srcDirectoryPath = "../../../../src";
-const string foundationDirectoryPath = "../Foundation";
 
 var projectDirectoryPath = Directory.Exists(srcDirectoryPath)
     ? Directory
         .GetDirectories(srcDirectoryPath, "*.Web")
-        .FirstOrDefault() ?? foundationDirectoryPath
-    : foundationDirectoryPath;
+        .FirstOrDefault() : null;
+
+if (projectDirectoryPath == null)
+{
+    throw new Exception($"Foundation.Web project directory could not be found: {srcDirectoryPath}");
+}
 
 var config = new ConfigurationBuilder()
     .SetBasePath(Path.GetFullPath(projectDirectoryPath))

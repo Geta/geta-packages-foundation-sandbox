@@ -3,7 +3,7 @@
     <!-- Copy all Foundation modules to customer project on build -->
     <Target Name="CopyAllFoundationModulesToCustomerProjectOnBuild" BeforeTargets="BeforeBuild">
         <PropertyGroup>
-            <SourceFolder>..\..\sandbox\geta-packages-foundation-sandbox\src\Foundation\modules</SourceFolder>
+            <SourceFolder>..\..\sub\geta-foundation-core\src\Foundation\modules</SourceFolder>
             <DestinationFolder>modules</DestinationFolder>
         </PropertyGroup>
 
@@ -19,7 +19,7 @@
     
     <Target Name="CopyStaticAssets" BeforeTargets="BeforeBuild">
         <PropertyGroup>
-            <SourceFolder>..\..\sandbox\geta-packages-foundation-sandbox\src\Foundation\wwwroot</SourceFolder>
+            <SourceFolder>..\..\sub\geta-foundation-core\src\Foundation\wwwroot</SourceFolder>
             <DestinationFolder>wwwroot</DestinationFolder>
         </PropertyGroup>
 
